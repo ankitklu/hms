@@ -1,0 +1,81 @@
+.shop-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    align-items: center;
+    margin-top: 10px;
+    background-color:rgb(171, 234, 234);
+}
+.box{
+    width: 23%;
+    height: 420px;
+    display: flex;
+    margin-top:15px;
+    background-color: white;
+    /* border: 2px solid black; */
+    border : 2px solid rgb(104, 228, 232);
+    border-radius:10px;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 0px 15px;
+}
+
+.box1-image{
+    height: 350px;
+    width: 300px;
+    background-size: cover; 
+    margin-right: 1rem;
+    margin-left:1rem;
+    margin-top:1rem;
+    margin-bottom: 1rem;
+}
+
+.box-content{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+
+.box-content p{
+    color: #007185;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-left {
+    max-width: 60%;
+  }
+  
+  .subscribe-panel {
+    max-width: 40%;
+    text-align: right;
+  }
+  
+  .subscribe-panel h4 {
+    margin-bottom: 10px;
+  }
+  
+  .subscribe-panel form {
+    display: flex;
+  }
+  
+  .subscribe-panel input {
+    padding: 8px;
+    margin-right: 10px;
+  }
+  
+  .subscribe-panel button {
+    background-color: #fff;
+    color: #333;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+  }
+  
