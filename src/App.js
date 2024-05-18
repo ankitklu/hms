@@ -1,7 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
-import CoverPage from './components/CoverPage';
 import ViewHotel from './components/ViewHotel';
 import Footer from './components/Footer';
 import SignUp from './components/SignUp';
@@ -18,24 +17,39 @@ import NonDeluxe from './components/rooms/NonDeluxe';
 import FarmHouse from './components/rooms/FarmHouse';
 import Resorts from './components/rooms/Resorts';
 import Book from './components/rooms/Book';
+import NavProfile from './NavProfile';
+import CoverPage2 from './components/CoverPage2';
+import { useAuth0 } from '@auth0/auth0-react';
+import { useSelector } from 'react-redux';
+// import CoverPage2 from './components/CoverPage2';
 // import Book2 from './components/rooms/Book2';
+import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
+import Trial from './components/Trial'
 
 function App() {
-  return (
+	const {isAuthenticated} = useSelector(state => state.root);
+  return ( 
 		<>
 		<NavBar/>
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<><CoverPage/><ViewHotel/><Footer/></>}></Route>
+				<Route path="/" element={<><CoverPage2/><ViewHotel/><Footer/></>}></Route>
 				<Route path="/about" element={<About/>}></Route>
 				<Route path="/signup" element={<SignUp/>}></Route>
-				<Route path='/view' element={<ViewHotel/>}></Route>
+				<Route path="/trial" element={<Trial/>}></Route>
+				{/* <Route path='/view' element={<ViewHotel/>}></Route> */}
+				<Route path='/view' element={<ProtectedRoute isAuthenticated={isAuthenticated}>
+					<ViewHotel/>
+				</ProtectedRoute>}/>
 				<Route path='/signin' element={<Login/>}></Route>
+				<Route path='/viewprofile' element={<NavProfile/>}></Route>
+		
 				<Route path='/admin' element={<AdminPage/>}>
 					<Route path='/admin/entry' element={<Entry/>}></Route>
 					<Route path='/admin/profile' element={<Profile/>}></Route>
 					<Route path='/admin/viewhotel' element={<View/>}></Route>
 				</Route>
+				
 				<Route path='/client' element={<Client/>}>
 					<Route path='/client/deluxe' element={<Deluxe/>}></Route>
 					<Route path='/client/nondeluxe' element={<NonDeluxe/>}></Route>
